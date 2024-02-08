@@ -9,7 +9,7 @@ const typedfield = document.getElementById('typed');
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('counter')
-const textcounter = document.getElementsByClassName('textcounter');
+const textcounter = document.getElementsByClassName('textcounter')[0];
 
 
 //複数のテキストを格納する配列
@@ -18,7 +18,7 @@ const textLists = [
    'Today is sunny','I love JavaScript!','Good morning',
    'I am Japanese','Let it be','Samurai',
    'Typing Game','Information Technology',
-   'I want to be a programmer','What day is today?',
+   'I want to be a programmer','What day is it today?',
    'I want to build a web app','Nice to meet you',
    'Chrome Firefox Edge Safari','machine learning',
    'Brendan Eich','John Resig','React Vue Angular',
@@ -26,7 +26,106 @@ const textLists = [
    'Thank you very much','Google Apple Facebook Amazon',
    'ECMAScript','console.log','for while if switch',
    'var let const','Windows Mac Linux iOS Android',
-   'programming'
+   'programming',  "Hello!",
+   "Hi there!",
+   "How's it going?",
+   "What's up?",
+   "How are you?",
+   "Good morning!",
+   "Good afternoon!",
+   "Good evening!",
+   "Hey, how's everything?",
+   "Long time no see!",
+   "How have you been?",
+   "What have you been up to?",
+   "Nice to see you!",
+   "See you later!",
+   "Have a good one!",
+   "Take care!",
+   "See you soon!",
+   "Bye for now!",
+   "Thanks!",
+   "Thank you so much!",
+   "Thanks a lot!",
+   "I appreciate it.",
+   "No problem!",
+   "You're welcome!",
+   "Sorry about that.",
+   "Excuse me.",
+   "Pardon me.",
+   "Could you repeat that?",
+   "Can you help me?",
+   "I need your assistance.",
+   "I'm sorry, I don't understand.",
+   "Could you speak more slowly?",
+   "Can you explain that again?",
+   "Please wait a moment.",
+   "Let me check.",
+   "I'm sorry, I'm late.",
+   "My apologies.",
+   "That's alright.",
+   "It's no big deal.",
+   "It happens.",
+   "Don't worry about it.",
+   "It's all good.",
+   "Let's get started!",
+   "Ready when you are!",
+   "Let's go!",
+   "Here we go!",
+   "Hold on a second.",
+   "Give me a minute.",
+   "Just a second.",
+   "I'm on my way.",
+   "Let's do this!",
+   "What do you think?",
+   "How does that sound?",
+   "I'm excited!",
+   "I'm looking forward to it.",
+   "That sounds great!",
+   "I'm thrilled!",
+   "I'm so happy for you!",
+   "That's fantastic!",
+   "I'm impressed!",
+   "That's amazing!",
+   "I'm proud of you!",
+   "Congratulations!",
+   "Happy birthday!",
+   "Happy anniversary!",
+   "Merry Christmas!",
+   "Happy New Year!",
+   "Enjoy your meal!",
+   "Bon appétit!",
+   "Cheers!",
+   "Bottoms up!",
+   "Here's to you!",
+   "Let's celebrate!",
+   "That was delicious!",
+   "I'm stuffed!",
+   "I'm full.",
+   "Can I have the check, please?",
+   "Can I get a refill?",
+   "I'll have what they're having.",
+   "Could I have a to-go box?",
+   "Do you accept credit cards?",
+   "Do you take reservations?",
+   "What's your WiFi password?",
+   "Can I have a receipt, please?",
+   "Where's the restroom?",
+   "Do you have any recommendations?",
+   "What's your favorite dish here?",
+   "I'll have the same thing.",
+   "That was excellent service!",
+   "Do you mind if I sit here?",
+   "Is this seat taken?",
+   "Excuse me, may I pass?",
+   "Do you have a minute?",
+   "Can I ask you a question?",
+   "Do you know where I can find...?",
+   "What time do you close?",
+   "Can I have your phone number?",
+   "Could you please call me a taxi?",
+   "How much does it cost?",
+   "Have a safe trip!"
 ];
 
 //ランダムなテキストを表示
@@ -65,7 +164,7 @@ const keyPress = e => {
   untyped = untyped.substring(1);
   typedfield.textContent = typed;
   untypedfield.textContent = untyped;
-
+  textcounter.textContent = score;
   //テキストがなくなったら新しいテキストを表示
   if(untyped === ''){
     createText();
@@ -119,7 +218,6 @@ const timer = () => {
     //カウントが0になったらタイマーを停止する 
     if(time <= 0){
       gameOver(id);
-
     }
   }, 1000);
 };
@@ -127,7 +225,7 @@ const timer = () => {
 //ゲームスタート時の処理
 start.addEventListener('click', () => {
 
-  console.log("スタートボタンが押されました");
+  
   //カウントダウンタイマーを開始する
   timer();
 
@@ -138,7 +236,7 @@ start.addEventListener('click', () => {
   start.style.display = 'none';
   
   //タイプ数のカウンターを表示
-  textcounter.style.display = '';
+  textcounter.style.display = 'block';
   //キーボードのイベント処理
   document.addEventListener('keypress', keyPress);
 });
